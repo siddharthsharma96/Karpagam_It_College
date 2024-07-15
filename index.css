@@ -1,0 +1,26 @@
+.container {
+  border: 1px solid red;
+  height: 80vh;
+}
+/* body {
+  border: 1px solid black;
+} */
+.fixed {
+  background-color: yellow;
+  position: fixed;
+  top: 100px;
+  left: -2px;
+}
+.relative {
+  position: relative;
+}
+#absolute {
+  position: absolute;
+  top: 50px;
+  background-color: yellow;
+}
+.sticky {
+  position: sticky;
+  background-color: yellow;
+  top: 20px;
+}
