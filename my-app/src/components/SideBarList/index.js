@@ -1,3 +1,5 @@
+import SideBarListItem from "../SideBarListItem";
+
 const SideBarList = () => {
   const listItemData = [
     {
@@ -8,23 +10,33 @@ const SideBarList = () => {
       listItemText: "About us",
       link: "#",
     },
+    {
+      listItemText: "Contact us",
+      link: "#",
+    },
+    {
+      listItemText: "cart",
+      link: "#",
+    },
   ];
   return (
     <div className="sidebar-container__list">
       <ul>
         {listItemData.map((item, index) => {
           return (
-            <li>
-              <a href={item.link}>{item.listItemText}</a>
-            </li>
+            <SideBarListItem
+              key={index}
+              text={item.listItemText}
+              link={item.link}
+            />
           );
         })}
-        <li>
+        {/* <li>
           <a href="#">Home</a>
         </li>
         <li>
           <a href="#">About us</a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

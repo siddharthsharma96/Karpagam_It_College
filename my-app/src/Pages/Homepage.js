@@ -1,9 +1,8 @@
 const HomePage = () => {
   return (
-    <>
-      <p className="home__container">Home Page</p>
-      <p>Agsgcsgdvg</p>
-    </>
+    <div className="layout-container">
+      <div className="layout-container__wrapper">Home Page</div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
-const SideBarListItem = (props) => {
+const SideBarListItem = ({ text, link }) => {
   return (
     <li>
-      <a href={props.link}>{props.listItemText}</a>
+      <a href={link}>{text}</a>
     </li>
   );
 };
