@@ -1,25 +1,39 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./Pages/Homepage";
-import AboutPage from "./Pages/AboutPage";
+const App = lazy(() => import("./App"));
+const HomePage = lazy(() => import("./Pages/Homepage"));
+const AboutPage = lazy(() => import("./Pages/AboutPage"));
 
 // ?createBrowserRouter will take array of objects as argument
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <Suspense>
+        <App />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
-        element: <HomePage />,
+
+        element: (
+          <Suspense>
+            {" "}
+            <HomePage />
+          </Suspense>
+        ),
       },
       {
         path: "/about",
-        element: <AboutPage />,
+        element: (
+          <Suspense>
+            <AboutPage />
+          </Suspense>
+        ),
       },
       {
         path: "*",

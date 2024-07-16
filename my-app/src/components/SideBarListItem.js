@@ -1,7 +1,10 @@
+import { NavLink } from "react-router-dom";
+
 const SideBarListItem = ({ text, link }) => {
   return (
     <li>
-      <a href={link}>{text}</a>
+      <NavLink to={link}>{text}</NavLink>
+      {/* <a href={link}>{text}</a> */}
     </li>
   );
 };

@@ -4,19 +4,19 @@ const SideBarList = () => {
   const listItemData = [
     {
       listItemText: "Home",
-      link: "#",
+      link: "/",
     },
     {
       listItemText: "About us",
-      link: "#",
+      link: "/about",
     },
     {
       listItemText: "Contact us",
-      link: "#",
+      link: "/contact",
     },
     {
       listItemText: "cart",
-      link: "#",
+      link: "/cart",
     },
   ];
   return (
