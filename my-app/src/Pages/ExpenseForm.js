@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { expenseData } from "../utils/expensedata";
+import { useNavigate } from "react-router-dom";
 
 const ExpenseForm = () => {
-  const data = [];
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState(100);
@@ -32,14 +34,11 @@ const ExpenseForm = () => {
     setTitle("");
   };
   const handleSubmit = (event) => {
+    navigate("/");
     event.preventDefault();
-    console.log("data added");
-    data.push({ amount, type, title, date, description });
-    console.log(data);
+
+    expenseData.push({ amount, type, title, date, description });
   };
-  useEffect(() => {
-    console.log(data);
-  });
 
   return (
     <div className="layout-container">
