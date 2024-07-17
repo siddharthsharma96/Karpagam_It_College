@@ -11,12 +11,12 @@ const SideBarList = () => {
       link: "/about",
     },
     {
-      listItemText: "Contact us",
-      link: "/contact",
+      listItemText: "Counter",
+      link: "/counter",
     },
     {
-      listItemText: "cart",
-      link: "/cart",
+      listItemText: "form",
+      link: "/form",
     },
   ];
   return (
