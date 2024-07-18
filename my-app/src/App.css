@@ -89,7 +89,9 @@
     transform: rotate(360deg);
   }
 }
-
+.flexbox-row {
+  display: flex;
+}
 /* Flexbox */
 .flexbox {
   display: flex;

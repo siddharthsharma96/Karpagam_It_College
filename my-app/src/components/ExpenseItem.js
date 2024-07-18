@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom";
-const ExpenseItem = ({ detail, handleDelete }) => {
-  const navigate = useNavigate();
+const ExpenseItem = ({ detail }) => {
   const monthNames = [
     "Jan",
     "Feb",
@@ -15,9 +13,6 @@ const ExpenseItem = ({ detail, handleDelete }) => {
     "Nov",
     "Dec",
   ];
-  const redirectHandler = () => {
-    navigate(`/edit/${detail.id}`);
-  };
 
   return (
     <li className="a">
@@ -36,11 +31,11 @@ const ExpenseItem = ({ detail, handleDelete }) => {
         </div>
       </div>
       <div className="ab">
-        <div className="pill">{detail.currency}</div>
-        <button className="actions" onClick={redirectHandler}>
+        <div className="pill">{detail.amount}</div>
+        <button className="actions">
           <span className="material-icons edit">edit</span>
         </button>
-        <button className="actions" onClick={() => handleDelete(detail.id)}>
+        <button className="actions">
           <span className="material-icons delete">delete</span>
         </button>
       </div>
