@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { expenseData } from "../utils/expensedata";
 import { useNavigate } from "react-router-dom";
 
@@ -33,10 +33,23 @@ const ExpenseForm = () => {
     setType("");
     setTitle("");
   };
+
+  const addExpense = async () => {
+    const response = await fetch("http://localhost:8000/data", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ amount, type, title, date, description }),
+    });
+    if (response.ok) {
+      console.log("Expenses added in db");
+    }
+  };
   const handleSubmit = (event) => {
     navigate("/");
     event.preventDefault();
-
+    addExpense();
     expenseData.push({ amount, type, title, date, description });
   };
 

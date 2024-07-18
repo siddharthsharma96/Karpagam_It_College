@@ -1,8 +1,21 @@
 import ExpenseItem from "../components/ExpenseItem";
-import { expenseData } from "../utils/expensedata";
+import { useState, useEffect } from "react";
+// import { expenseData } from "../utils/expensedata";
 
 const HomePage = () => {
-  console.log(expenseData);
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    const response = await fetch("http://localhost:8000/data");
+    if (response.status === 200) {
+      const data = await response.json();
+      setData(data);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className="layout-container">
       <div className="layout-container__wrapper">
@@ -14,7 +27,7 @@ const HomePage = () => {
 
         <div className="layout-container__expenses">
           <ul>
-            {expenseData.map((element, index) => {
+            {data.map((element, index) => {
               return <ExpenseItem key={index} detail={element} />;
             })}
           </ul>
