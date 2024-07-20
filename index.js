@@ -1,145 +1,119 @@
-// // // console.log(fullName);
-// // // var fullName = "Siddharth";
-// // // console.log(fullName);
+// Array of ingredients for making pancakes
+let ingredients = ["flour", "eggs", "milk", "sugar"];
 
-// // // printFullName();
+// // Method chaining example: filtering, mapping, and joining ingredients
+// let result = ingredients
+//   .filter(item => item !== "sugar")  // Remove sugar from the ingredients
+//   .map(item => item.toUpperCase())   // Make each ingredient uppercase
+//   .join(", ");                       // Combine them with commas
 
-// // // function printFullName() {
-// // //   console.log("Siddharth", age);
-// // //   var age = 27;
-// // // }
+// console.log(result); // Output: "FLOUR, EGGS, MILK"
 
-// // // printFullName();
-// // // a();
+// Class for a calculator with methods for basic arithmetic operations
+class Calculator {
+  constructor(value = 0) {
+    this.value = value;
+  }
+  // Method to add a number to the calculator's current value
+  add(number) {
+    this.value += number;
+    return this; // Return the calculator object for chaining
+  }
+  // Method to subtract a number from the calculator's current value
+  subtract(number) {
+    this.value -= number;
+    return this; // Return the calculator object for chaining
+  }
+  // Method to multiply the calculator's current value by a number
+  multiply(number) {
+    this.value *= number;
+    return this; // Return the calculator object for chaining
+  }
+  // Method to divide the calculator's current value by a number
+  divide(number) {
+    this.value /= number;
+    return this; // Return the calculator object for chaining
+  }
+  // Method to get the current result of the calculator's operations
+  getResult() {
+    return this.value;
+  }
+}
+// Example of using the calculator class with method chaining
+let result = new Calculator()
+  .add(10)
+  .subtract(2)
+  .multiply(3)
+  .divide(4)
+  .getResult();
+console.log(result); // Output: 6
 
-// // // var a = function () {
-// // //   console.log("Function execution");
-// // // };
 
-// // // a();
 
-// // var a = 10;
-// // let b = 12;
-// // const c = 12;
-// // // c = 13;
-// // console.log(a, b, c);
 
-// // // function printFullName() {
-// // //   var aa = 20;
-// // // }
-// // // // printFullName();
-
-// // // printFullName();
-
-// // function printFullName() {
-// //   console.log("Siddharth");
-// //   //   var age = 27;
-// // }
-
-// // printFullName();
-// // // a();
-
-// // var a = function () {
-// //   console.log("Function execution");
-// // };
-
-// // a();
-
-// // // hello();
-// // var hello = () => {
-// //   console.log("gddsgdgg");
-// // };
-// // hello();
-
-// // const arr = [1, 2, 3, 4];
-// // console.log(arr);
-// // // arr = [1, 2, 3, 4, 5];
-// // arr.push(9);
-// // console.log(arr);
-
-// // if ([] == []) {
-// //   console.log("same");
-// // } else {
-// //   console.log("not same");
-// // }
-
-// function asyncCode() {
-//   setTimeout(() => {
-//     console.log("SetTimeoput");
-//   }, 0);
+// // Initial array of student grades
+// const grades = [85, 92, 78, 96, 88];
+// // Function to calculate the average grade
+// const calculateAverage = function(grades) {
+//     let total = 0;
+//     // Loop through each grade
+//     for (let i = 0; i < grades.length; i++) {
+//         total += grades[i];
+//     }
+//     // Calculate average
+//     return total / grades.length;
 // }
 
-// asyncCode();
-// console.log("sync part called");
+// // Function to find the highest grade
+// const findHighestGrade = function(grades) {
+//     let highest = grades[0];
+//     // Loop through each grade
+//     for (let i = 1; i < grades.length; i++) {
+//         if (grades[i] > highest) {
+//             highest = grades[i];
+//         }
+//     }
+//     return highest; // Return the highest grade
+// }
 
-// // const a = [1, 2, 3, 4, 5];
+// console.log(calculateAverage(grades)); // 87.8
+// console.log(findHighestGrade(grades)); // 96
 
-// // for (let i = 0; i < a.length; i++) {
-// //   console.log(a[i]);
-// // }
 
-// // a.map((element) => {
-// //   console.log(element);
-// // });
+// Initial array of student grades
+const grades = [85, 92, 78, 96, 88];
 
-// // // var hello = (parameter) => {
-// // //   console.log("gddsgdgg", parameter);
-// // // };
-// // hello(argument);
-
-// const render = new Promise((resolve, reject) => {
-//   var a = true;
-//   if (a) {
-//     resolve("fulfilled");
-//   } else {
-//     reject("Promise rejected");
-//   }
-// });
-
-// // how to use promise using .then
-// render
-//   .then((resp) => {
-//     console.log(resp);
-//   })
-//   .catch((err) => console.log(err));
-
-// // how to use promise using async
-// const ab = async () => {
-//   try {
-//     const res = await render();
-//     console.log(res);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-const fetchData = async () => {
-  const resp = await fetch(
-    "https://jsonplaceholder.typicode.com/posts/1/comments"
-  );
-  console.log(resp);
-  const data = await resp.json();
-  console.log(data);
-};
-fetchData();
-
-//
-function sum(a, b, c) {
-  let sumofNo = a + b + c;
-  console.log(sumofNo);
+// Function to calculate the average of grades
+const average = function(grades) {
+    const total = grades.reduce((sum, grade) => sum + grade, 0);
+    return total / grades.length;
 }
-sum(1, 2, 3);
-const curryingSum = (a) => {
-  return (b) => {
-    return (c) => {
-      let sumofNo = a + b + c;
-      console.log(sumofNo);
-    };
-  };
-};
 
-const add = curryingSum(1);
-const add2 = add(2);
-add2(4);
+// Function to find the highest grade
+const highest = function(grades) {
+    return grades.reduce((max, grade) => (grade > max ? grade : max), grades[0]);
+}
 
-curryingSum(1)(2)(3);
+// General function to calculate different properties of grades
+// Takes a grades array and a logic function (average, highest, etc.)
+const calculate = function(grades, logic) {
+    return logic(grades);
+}
+
+console.log(calculate(grades, average)); // 87.8
+console.log(calculate(grades, highest)); // 96
+
+
+// const arr = [1, 2, 3, 4, 5];
+// const output = arr.map(num => num + 10);
+// console.log(output); // [11, 12, 13, 14, 15]
+
+
+const arr = [1, 2, 3, 4, 5];
+const output = arr.filter(num => num % 2);
+console.log(output); // [1, 3, 5]
+
+
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((total, currentValue) => total + currentValue, 0);
+console.log(sum); // 15
